@@ -4,29 +4,29 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <!--<classPathEntry location=""/>-->
-    <context defaultModelType="conditional" id="ligeng.com" targetRuntime="MyBatis3">
+    <context defaultModelType="conditional" id="ydb.com" targetRuntime="MyBatis3">
         <!--<property name="" value="" />-->
         <property name="renamePlugin.search" value=""/>
         <property name="renamePlugin.replace" value=""/>
         <property name="renamePlugin.prefix" value="MBG"/>
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
-        <plugin type="com.dream.utils.mybatis.plugin.MySQLRowBoundsPlugin"/>
-        <plugin type="com.dream.utils.mybatis.plugin.RenamePlugin"/>
-        <plugin type="com.dream.utils.mybatis.plugin.SeparateUserCodePlugin"/>
+        <!--<plugin type="com.dream.utils.mybatis.plugin.MySQLRowBoundsPlugin"/>-->
+        <!--<plugin type="com.dream.utils.mybatis.plugin.RenamePlugin"/>-->
+        <!--<plugin type="com.dream.utils.mybatis.plugin.SeparateUserCodePlugin"/>-->
 
-        <commentGenerator type="com.dream.utils.mybatis.comment.CommentGenerator">
+        <commentGenerator>
             <property name="suppressAllComments" value="false"/>
             <property name="suppressDate" value="true"/>
         </commentGenerator>
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/mydb"
-                        password=""
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/spring-boot-demo"
+                        password="wasd"
                         userId="root"
                         />
-        <javaTypeResolver type="com.dream.utils.mybatis.type.CustomJavaTypeResolver">
-            <property name="customTypeMap" value="TINYINT:java.lang.Integer,LONGVARCHAR:java.lang.String"/>
-        </javaTypeResolver>
-        <javaModelGenerator targetPackage="com.ligeng.entity.nochange" targetProject="src/main/java">
+        <!--<javaTypeResolver>-->
+            <!--<property name="customTypeMap" value="TINYINT:java.lang.Integer,LONGVARCHAR:java.lang.String"/>-->
+        <!--</javaTypeResolver>-->
+        <javaModelGenerator targetPackage="com.ydb.entity.nochange" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
             <property name="renamePlugin.prefix" value=""/>
@@ -35,17 +35,17 @@
             <property name="enableSubPackages" value="true"/>
             <property name="separateUserCodePlugin.targetPackage" value="mappers.work"/>
         </sqlMapGenerator>
-        <javaClientGenerator targetPackage="com.ligeng.mapper.nochange" targetProject="src/main/java"
+        <javaClientGenerator targetPackage="com.ydb.mapper.nochange" targetProject="src/main/java"
                              type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
             <property name="exampleMethodVisibility" value="public"/>
             <property name="methodNameCalculator" value="default"/>
-            <property name="separateUserCodePlugin.targetPackage" value="com.ligeng.mapper.nochange"/>
+            <property name="separateUserCodePlugin.targetPackage" value="com.ydb.mapper.nochange"/>
             <property name="separateUserCodePlugin.search" value="\AMBG"/>
             <property name="separateUserCodePlugin.replace" value=""/>
         </javaClientGenerator>
 
-        <table tableName="mytb2" domainObjectName="Mytb2">
+        <table tableName="issues" domainObjectName="Issue">
             <property name="useActualColumnNames" value="true"/>
             <generatedKey column="sceneId" identity="true" sqlStatement="MySql"/>
         </table>
