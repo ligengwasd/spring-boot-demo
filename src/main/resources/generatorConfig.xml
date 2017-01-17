@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 <generatorConfiguration>
     <!--<classPathEntry location=""/>-->
-    <context defaultModelType="conditional" id="ydb.com" targetRuntime="MyBatis3">
+    <context defaultModelType="flat" id="ydb.com" targetRuntime="MyBatis3">
         <!--<property name="" value="" />-->
         <property name="renamePlugin.search" value=""/>
         <property name="renamePlugin.replace" value=""/>
@@ -31,6 +31,7 @@
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
             <property name="renamePlugin.prefix" value=""/>
+            <property name="rootClass" value="com.ydb.entity.BaseEntity"/>
         </javaModelGenerator>
         <sqlMapGenerator targetPackage="mappers.nochange" targetProject="src/main/resources">
             <property name="enableSubPackages" value="true"/>
