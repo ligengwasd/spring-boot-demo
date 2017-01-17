@@ -10,9 +10,9 @@ import java.util.Date;
  */
 @Data
 public class PubIssuesReq {
-    @NotEmpty
+    @NotEmpty(message = "2001")
     private String tokenKey;
-    @NotEmpty(message = "帖子类型不能为空")
+    @NotEmpty(message = "3001")
     private String type;
     private String title;
     private String content;
