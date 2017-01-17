@@ -12,7 +12,7 @@ import java.util.Date;
 public class PubIssuesReq {
     @NotEmpty
     private String tokenKey;
-    @NotEmpty
+    @NotEmpty(message = "帖子类型不能为空")
     private String type;
     private String title;
     private String content;

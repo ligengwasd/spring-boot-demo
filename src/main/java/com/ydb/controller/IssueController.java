@@ -3,9 +3,11 @@ package com.ydb.controller;
 import com.ydb.entity.nochange.Issue;
 import com.ydb.mapper.nochange.IssueMapper;
 import com.ydb.model.request.PubIssuesReq;
+import com.ydb.model.response.BaseRepModel;
 import com.ydb.model.response.IssueDetail;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -31,7 +33,7 @@ public class IssueController {
     }
 
     @PostMapping
-    public PubIssuesReq pubIssue(@RequestBody PubIssuesReq req){
-        return req;
+    public BaseRepModel pubIssue(@Valid @RequestBody PubIssuesReq req , BindingResult validResult){
+        return new BaseRepModel();
     }
 }
