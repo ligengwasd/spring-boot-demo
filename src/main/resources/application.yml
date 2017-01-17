@@ -1,6 +1,5 @@
 server:
-  port: 9090
-
+  port: 9091
 
 spring:
   datasource:
@@ -26,5 +25,5 @@ spring:
     maxOpenPreparedStatements: 20
 
 mybatis:
-  mapperLocations: classpath:mapper/*.xml
-  typeAliasesPackage: com.ydb.model
+  type-aliases-package: com.ydb.entity
+  mapper-locations: classpath:mappers/**/*.xml
