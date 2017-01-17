@@ -37,7 +37,6 @@ public class ValidAspect {
             List<ObjectError> list = result.getAllErrors();
             for (ObjectError error:list){
                 repModel.setCode(200);
-                System.out.println(messageSource.getMessage(error.getDefaultMessage(),null,"1111",null));
                 repModel.setMsg(messageSource.getMessage(error.getDefaultMessage(),null,"1111",null));
                 return repModel;
             }

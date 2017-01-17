@@ -1,8 +1,13 @@
 package com.ydb.model.request;
 
+import com.ydb.enums.IssueType;
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.util.StringUtils;
 
+import javax.validation.constraints.AssertTrue;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -12,9 +17,10 @@ import java.util.Date;
 public class PubIssuesReq {
     @NotEmpty(message = "2001")
     private String tokenKey;
-    @NotEmpty(message = "3001")
-    private String type;
+    @NotNull(message = "3001")
+    private IssueType type;
     private String title;
+    @Length(max = 10, min = 2, message = "3002")
     private String content;
     private String feedback;
     private String isAnonyMous;
@@ -36,4 +42,16 @@ public class PubIssuesReq {
     private int collectNum = 0;
     private int readNum = 0;
     private String tags;
+
+    @AssertTrue(message = "1002")
+    private boolean getMixed(){
+        if (type == IssueType.feedback){
+            return !StringUtils.isEmpty(feedback);
+        }
+        if (type == IssueType.square){
+            return !StringUtils.isEmpty(content);
+        }
+        return true;
+    }
+
 }
