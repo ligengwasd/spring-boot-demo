@@ -10,9 +10,9 @@
         <property name="renamePlugin.replace" value=""/>
         <property name="renamePlugin.prefix" value="MBG"/>
         <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
-        <!--<plugin type="com.dream.utils.mybatis.plugin.MySQLRowBoundsPlugin"/>-->
-        <!--<plugin type="com.dream.utils.mybatis.plugin.RenamePlugin"/>-->
-        <!--<plugin type="com.dream.utils.mybatis.plugin.SeparateUserCodePlugin"/>-->
+        <plugin type="com.dream.utils.mybatis.plugin.MySQLRowBoundsPlugin"/>
+        <plugin type="com.dream.utils.mybatis.plugin.RenamePlugin"/>
+        <plugin type="com.dream.utils.mybatis.plugin.SeparateUserCodePlugin"/>
 
         <commentGenerator>
             <property name="suppressAllComments" value="false"/>
@@ -24,14 +24,14 @@
                         password="wasd"
                         userId="root"
                         />
-        <!--<javaTypeResolver>-->
-            <!--<property name="customTypeMap" value="TINYINT:java.lang.Integer,LONGVARCHAR:java.lang.String"/>-->
-        <!--</javaTypeResolver>-->
+        <javaTypeResolver>
+            <property name="customTypeMap" value="TINYINT:java.lang.Integer,LONGVARCHAR:java.lang.String"/>
+        </javaTypeResolver>
         <javaModelGenerator targetPackage="com.ydb.entity.nochange" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
             <property name="renamePlugin.prefix" value=""/>
-            <property name="rootClass" value="com.ydb.entity.BaseEntity"/>
+            <!--<property name="rootClass" value="com.ydb.entity.BaseEntity"/>-->
         </javaModelGenerator>
         <sqlMapGenerator targetPackage="mappers.nochange" targetProject="src/main/resources">
             <property name="enableSubPackages" value="true"/>
