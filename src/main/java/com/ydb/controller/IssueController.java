@@ -17,12 +17,12 @@ import javax.validation.Valid;
  */
 
 @RestController
-@RequestMapping("/issue")
+@RequestMapping
 public class IssueController {
     @Autowired
     private IssueMapper issueMapper;
 
-    @GetMapping("/{id}")
+    @GetMapping("/issue/{id}")
     public IssueDetail getIssueById(@PathVariable String id){
         IssueDetail data = new IssueDetail();
         Issue issue = issueMapper.selectByPrimaryKey(id);
@@ -30,7 +30,7 @@ public class IssueController {
         return data;
     }
 
-    @PostMapping
+    @PostMapping("/issue")
     public BaseResModel pubIssue(@Valid @RequestBody PubIssuesReq req , BindingResult validResult){
         return new BaseResModel(1000);
     }
