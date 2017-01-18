@@ -35,14 +35,14 @@
         </javaModelGenerator>
         <sqlMapGenerator targetPackage="mappers.nochange" targetProject="src/main/resources">
             <property name="enableSubPackages" value="true"/>
-            <property name="separateUserCodePlugin.targetPackage" value="mappers.work"/>
+            <property name="separateUserCodePlugin.targetPackage" value="mappers"/>
         </sqlMapGenerator>
         <javaClientGenerator targetPackage="com.ydb.mapper.nochange" targetProject="src/main/java"
                              type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
             <property name="exampleMethodVisibility" value="public"/>
             <property name="methodNameCalculator" value="default"/>
-            <property name="separateUserCodePlugin.targetPackage" value="com.ydb.mapper.nochange"/>
+            <property name="separateUserCodePlugin.targetPackage" value="com.ydb.mapper"/>
             <property name="separateUserCodePlugin.search" value="\AMBG"/>
             <property name="separateUserCodePlugin.replace" value=""/>
         </javaClientGenerator>

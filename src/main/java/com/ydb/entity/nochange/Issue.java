@@ -1,6 +1,5 @@
 package com.ydb.entity.nochange;
 
-import com.ydb.entity.BaseEntity;
 import java.util.Date;
 
 /**
@@ -10,7 +9,7 @@ import java.util.Date;
  *
  * @mbg.generated do_not_delete_during_merge
  */
-public class Issue extends BaseEntity {
+public class Issue {
     /**
      * Database Column Remarks:
      *   这是主键

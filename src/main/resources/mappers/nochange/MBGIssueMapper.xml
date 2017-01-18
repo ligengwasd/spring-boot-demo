@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ydb.mapper.nochange.IssueMapper">
+<mapper namespace="com.ydb.mapper.nochange.MBGIssueMapper">
   <resultMap id="BaseResultMap" type="com.ydb.entity.nochange.Issue">
     <!--
       WARNING - @mbg.generated
@@ -152,6 +152,13 @@
     <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
+    <if test="limit!=null">
+      limit 
+      <if test="start!=null">
+        #{start},
+      </if>
+      #{limit}
+    </if>
   </select>
   <select id="selectByExample" parameterType="com.ydb.entity.nochange.IssueExample" resultMap="BaseResultMap">
     <!--
@@ -169,6 +176,13 @@
     </if>
     <if test="orderByClause != null">
       order by ${orderByClause}
+    </if>
+    <if test="limit!=null">
+      limit 
+      <if test="start!=null">
+        #{start},
+      </if>
+      #{limit}
     </if>
   </select>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">

@@ -1,7 +1,7 @@
 package com.ydb.controller;
 
-import com.ydb.entity.nochange.Issue;
-import com.ydb.mapper.nochange.IssueMapper;
+import com.ydb.entity.work.nochange.Issue;
+import com.ydb.mapper.work.nochange.IssueMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
