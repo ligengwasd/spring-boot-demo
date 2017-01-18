@@ -1,6 +1,7 @@
 package com.ydb.common.conf;
 
 import com.ydb.common.interceptor.AuthInterceptor;
+import com.ydb.common.validation.MessageAspect;
 import com.ydb.common.validation.ValidAspect;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -24,9 +25,14 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
     }
 
     @Bean
+    public MessageAspect messageAspect(){
+        return new MessageAspect();
+    }
+
+    @Bean
     public ResourceBundleMessageSource messageSource(){
         ResourceBundleMessageSource source = new ResourceBundleMessageSource();
-        source.setBasename("i18n.exception-msg");
+        source.setBasename("i18n.message");
         return source;
     }
 }

@@ -1,9 +1,9 @@
 package com.ydb.controller;
 
-import com.ydb.entity.work.nochange.Issue;
-import com.ydb.mapper.work.nochange.IssueMapper;
+import com.ydb.entity.nochange.Issue;
+import com.ydb.mapper.IssueMapper;
 import com.ydb.model.request.PubIssuesReq;
-import com.ydb.model.response.BaseRepModel;
+import com.ydb.model.response.BaseResModel;
 import com.ydb.model.response.IssueDetail;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +24,6 @@ public class IssueController {
 
     @GetMapping("/{id}")
     public IssueDetail getIssueById(@PathVariable String id){
-//        IssueExample example = new IssueExample();
-//        example.createCriteria().andUIDEqualTo(id);
         IssueDetail data = new IssueDetail();
         Issue issue = issueMapper.selectByPrimaryKey(id);
         BeanUtils.copyProperties(issue, data);
@@ -33,7 +31,7 @@ public class IssueController {
     }
 
     @PostMapping
-    public BaseRepModel pubIssue(@Valid @RequestBody PubIssuesReq req , BindingResult validResult){
-        return new BaseRepModel();
+    public BaseResModel pubIssue(@Valid @RequestBody PubIssuesReq req , BindingResult validResult){
+        return new BaseResModel(1000);
     }
 }

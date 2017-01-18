@@ -1,12 +1,12 @@
 package com.ydb.common.validation;
 
-import com.ydb.model.response.BaseRepModel;
+import com.ydb.model.response.BaseResModel;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.stereotype.Component;
+import org.springframework.core.annotation.Order;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 
@@ -17,13 +17,12 @@ import java.util.List;
  */
 
 @Aspect
+@Order(30)
 public class ValidAspect {
-    @Autowired
-    private MessageSource messageSource;
 
     @Around("execution(* com.ydb.controller.*.*(..,@javax.validation.Valid (*), org.springframework.validation.BindingResult,..))")
-    public BaseRepModel doValid(ProceedingJoinPoint pjp) throws Throwable {
-        BaseRepModel repModel = new BaseRepModel();
+    public BaseResModel doValid(ProceedingJoinPoint pjp) throws Throwable {
+        BaseResModel repModel = new BaseResModel();
         repModel.setCode(-99);
 
         Object[] args = pjp.getArgs();
@@ -36,11 +35,10 @@ public class ValidAspect {
         if (result != null && result.hasErrors()){
             List<ObjectError> list = result.getAllErrors();
             for (ObjectError error:list){
-                repModel.setCode(200);
-                repModel.setMsg(messageSource.getMessage(error.getDefaultMessage(),null,"1111",null));
+                repModel.setCode(new Integer(error.getDefaultMessage()));
                 return repModel;
             }
         }
-        return (BaseRepModel)pjp.proceed();
+        return (BaseResModel)pjp.proceed();
     }
 }
