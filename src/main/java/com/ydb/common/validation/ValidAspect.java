@@ -16,8 +16,8 @@ import java.util.List;
  * Created by dev on 16-5-24.
  */
 
-@Aspect
-@Order(30)
+//@Aspect
+//@Order(30)
 public class ValidAspect {
 
     @Around("execution(* com.ydb.controller.*.*(..,@javax.validation.Valid (*), org.springframework.validation.BindingResult,..))")

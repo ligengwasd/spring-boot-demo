@@ -13,8 +13,8 @@ import org.springframework.core.annotation.Order;
 /**
  * Created by ligeng on 17/1/18.
  */
-@Aspect
-@Order(5)
+//@Aspect
+//@Order(5)
 public class MessageAspect {
     @Autowired
     private MessageSource messageSource;
