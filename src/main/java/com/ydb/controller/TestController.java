@@ -7,10 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Random;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * Created by ligeng on 17/1/15.
@@ -26,7 +23,14 @@ public class TestController {
 //        Issue issue = new Issue();
 //        issue.setUID(UUID.randomUUID().toString());
 //        issueMapper.insert(issue);
-        feedRepository.save(getFeed());
+        List<Feed> feedList = new ArrayList<>();
+        for (int i= 0; i< 90000000L; i++){
+            feedList.add(getFeed());
+            if (!feedList.isEmpty() && feedList.size()%10000 == 0){
+                feedRepository.save(feedList);
+                feedList.clear();
+            }
+        }
         return "这是测试主页";
     }
 
